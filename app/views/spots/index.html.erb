@@ -1,0 +1,21 @@
+<div class = "spots">
+  <% @spots.each do |spot| %>
+  <div class="col-md-4">
+    <div class="card hovercard">
+        <div class="avatar">
+          <img alt="" src="<%=spot.image_url%>">
+        </div>
+        <div class="info">
+            <div class="title">
+                <h4><%=spot.name%></h4><br>
+            </div>
+            <div class="bottom">
+                <p><%=spot.description%></p><br>
+            </div>
+            <%= link_to 'Voir la carte', spot, class: "button-one" %>
+        </div>
+    </div>
+  </div>
+<% end %>
+</div>
+<br>
