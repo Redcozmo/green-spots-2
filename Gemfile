@@ -67,3 +67,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # For seed
 gem 'faker'
 gem 'nokogiri'
+
+# For generating a visualization of the BDD (in a pdf file)
+gem 'rails-erd'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_23_113135) do
+ActiveRecord::Schema.define(version: 2019_01_28_135925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,28 @@ ActiveRecord::Schema.define(version: 2019_01_23_113135) do
     t.decimal "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "taxons", force: :cascade do |t|
+    t.string "common_noun"
+    t.string "family"
+    t.string "genus"
+    t.string "species"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trees", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.decimal "latitude"
+    t.decimal "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "spot_id"
+    t.bigint "taxon_id"
+    t.index ["spot_id"], name: "index_trees_on_spot_id"
+    t.index ["taxon_id"], name: "index_trees_on_taxon_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -7,6 +7,7 @@ class CreateSpots < ActiveRecord::Migration[5.2]
       t.decimal :latitude
       t.decimal :longitude
       t.timestamps
+      # t.belongs_to :user, index: true
     end
   end
 end
