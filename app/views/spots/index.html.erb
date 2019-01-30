@@ -1,4 +1,5 @@
 <div class = "spots">
+  <!-- display all spots in a page -->
   <% @spots.each do |spot| %>
   <div class="col-md-4">
     <div class="card hovercard">
@@ -12,6 +13,15 @@
             <div class="bottom">
                 <p><%=spot.description%></p><br>
             </div>
+            <!-- Display number of trees -->
+            <p>Sur ce spot, il y a <%= spot.trees.count %> arbres identifiés.</p><br>
+            <!-- Display different taxa -->
+            <% spot.trees.each do |tree| %>
+            <div>
+                <%= tree.taxon.common_noun %>
+            </div>
+            <% end %>
+            <br>
             <%= link_to 'Voir la carte', spot, class: "button-one" %>
         </div>
     </div>
