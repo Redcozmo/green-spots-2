@@ -70,3 +70,6 @@ gem 'nokogiri'
 
 # For generating a visualization of the BDD (in a pdf file)
 gem 'rails-erd'
+
+# Rubocop
+gem 'rubocop', require: false
