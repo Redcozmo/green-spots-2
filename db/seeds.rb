@@ -48,10 +48,10 @@ end
 # Seed some taxa (plural of taxon)
 ##################################
 
-@tab_feuillus = ["Alisier", "Charme", "Châtaignier", "Chêne", "Érables",
+@tab_feuillus = ["Alisier", "Charme", "Châtaignier", "Chêne", "Érable",
                     "Frêne", "Hêtre", "Merisier"]
 @tab_resineux = ["Épicéa", "Mélèze", "Pin d’Alep", "Pin maritime",
-                    "Pin sylvestre", "Pin cembro", "Pin à crochets", 
+                    "Pin sylvestre", "Pin cembro", "Pin à crochets",
                       "Pin laricio de Corse", "Sapin des Vosges"]
 @tab_taxa = @tab_feuillus + @tab_resineux
 
