@@ -73,3 +73,6 @@ gem 'rails-erd'
 
 # Rubocop
 gem 'rubocop', require: false
+
+# display BDD
+gem 'table_print'

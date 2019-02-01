@@ -69,10 +69,12 @@ end
 # server message
 puts 'seeding trees..............'
 
-50.times do |k|
-  sample = @tab_taxa.sample
-  @tree = Tree.create(name: sample)
-  @tree.spot = Spot.find_by(id: rand(1..Spot.count))
-  @tree.taxon = Taxon.find_by(common_noun: sample)
-  @tree.save
+Spot.all.count.times do |k|
+  50.times do |l|
+    sample = @tab_taxa.sample
+    @tree = Tree.create(name: sample)
+    @tree.spot = Spot.find_by(id: k)
+    @tree.taxon = Taxon.find_by(common_noun: sample)
+    @tree.save
+  end
 end
