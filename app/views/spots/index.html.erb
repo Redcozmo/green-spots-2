@@ -16,14 +16,12 @@
             <!-- Display number of trees -->
             <p>Sur ce spot, il y a <%= spot.trees.count %> arbres identifiés.</p><br>
             <!-- Display different taxa -->
-            <p>Et <%= spot.taxa_count %> espèces différentes.</p><br>
-            <% spot.trees.each do |tree| %>
             <div>
-                <%= tree.taxon.common_noun %>
+              Et <%= spot.taxa_count %> espèces différentes :
+              <%= spot.taxa_array.join(', ') %>
             </div>
-            <% end %>
             <br>
-            <%= link_to 'Voir la carte', spot, class: "button-one" %>
+            <%= link_to 'Détails', spot, class: "button-one" %>
         </div>
     </div>
   </div>
