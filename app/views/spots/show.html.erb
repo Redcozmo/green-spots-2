@@ -1,25 +1,26 @@
 <!-- Spot display -->
 <h2><%= @spot.name %></h2>
-<div class="col-md-4">
-  <div class="card hovercard">
-      <div class="avatar">
-        <img alt="" src="<%=@spot.image_url%>">
-      </div>
-      <div class="info">
-          <div class="bottom">
-              <p><%=@spot.description%></p><br>
-          </div>
-          <!-- Display number of trees -->
-          <p>Sur ce spot, il y a <%= @spot.trees.count %> arbres identifiés.</p><br>
-          <!-- Display different taxa -->
-          <div>
-            Et <%= @spot.taxa_count %> espèces différentes :
-            <%= @spot.taxa_array.join(', ') %>
-          </div>
-          <br>
-          <p>affichage carte</p>
-          <br>
-          <%= link_to 'Liste spots', spots_path, class: "button-one" %>
-      </div>
-  </div>
-</div>
+<img alt="" src="<%=@spot.image_url%>">
+<p><%=@spot.description%></p><br>
+<!-- Display number of trees -->
+<p>Sur ce spot, il y a <%= @spot.trees.count %> arbres identifiés.</p><br>
+<!-- Display different taxa -->
+  Et <%= @spot.taxa_count %> espèces différentes :
+  <%= @spot.taxa_array.join(', ') %>
+<br>
+<!-- Display on map -->
+<p>affichage carte</p>
+<div id="map-show"></div>
+<br>
+<%= link_to 'Liste spots', spots_path, class: "button-one" %>
+
+<script type="text/javascript">
+  // declaration objet
+  var mymap2 = L.map('map-show').setView([45.777411, 4.855225], 13);
+  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox.streets',
+    accessToken: 'pk.eyJ1IjoicmVkY296bW8iLCJhIjoiY2pycTlyc2lqMDFqbTQzbnRtd3BzY2NvNyJ9.4ti19HQ3imFniEHgNQxMUg'
+  }).addTo(mymap2);
+</script>
