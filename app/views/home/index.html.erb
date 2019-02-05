@@ -49,11 +49,16 @@
 	   <%= link_to 'Sign Up', new_user_registration_path %>
 	</li>
 <% end %>
+<%= Spot.first.latitude.to_f %>
+<%= Spot.first.longitude.to_f %>
 
-<div id="mapid"></div>
+<div id="mapidtest"></div>
+<br>
+<div id="mapidall"></div>
+
 <script type="text/javascript">
 	// declaration objet
-	var mymap = L.map('mapid').setView([45.777411, 4.855225], 13);
+	var mymap = L.map('mapidtest').setView([45.777411, 4.855225], 13);
 
 	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
 		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -103,6 +108,23 @@
 			.openOn(mymap);
 		}
 	mymap.on('click', onMapClick);
+
+	// un green spot sur une carte
+	var spotsdisplay = L.map('mapidall').setView([45.759859, 4.836044], 12);
+
+	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		maxZoom: 18,
+		id: 'mapbox.streets',
+		accessToken: 'pk.eyJ1IjoicmVkY296bW8iLCJhIjoiY2pycTlyc2lqMDFqbTQzbnRtd3BzY2NvNyJ9.4ti19HQ3imFniEHgNQxMUg'
+	}).addTo(spotsdisplay);
+	// Un marqueur par spot
+	<% @spots.each do |spot| %>
+		var markerspot = L.marker([<%= spot.latitude.to_f %>, <%= spot.longitude.to_f %>]).addTo(spotsdisplay);
+		markerspot.bindPopup("<b><%= spot.name %></b>").openPopup();
+	<% end %>
+	// Recentrer la vue
+	spotsdisplay.setView([45.759859, 4.836044], 12);
 
 </script>
 

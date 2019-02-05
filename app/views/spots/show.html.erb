@@ -10,17 +10,17 @@
 <br>
 <!-- Display on map -->
 <p>affichage carte</p>
-<div id="map-show"></div>
+<div id="mapidone"></div>
 <br>
 <%= link_to 'Liste spots', spots_path, class: "button-one" %>
 
 <script type="text/javascript">
   // declaration objet
-  var mymap2 = L.map('map-show').setView([45.777411, 4.855225], 13);
+  var spotdisplay = L.map('mapidone').setView([45.777411, 4.855225], 13);
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
     id: 'mapbox.streets',
     accessToken: 'pk.eyJ1IjoicmVkY296bW8iLCJhIjoiY2pycTlyc2lqMDFqbTQzbnRtd3BzY2NvNyJ9.4ti19HQ3imFniEHgNQxMUg'
-  }).addTo(mymap2);
+  }).addTo(spotdisplay);
 </script>
