@@ -49,8 +49,8 @@
 	   <%= link_to 'Sign Up', new_user_registration_path %>
 	</li>
 <% end %>
-<%= Spot.first.latitude.to_f %>
-<%= Spot.first.longitude.to_f %>
+Lat : <%= Spot.first.latitude.to_f %>
+Long : <%= Spot.first.longitude.to_f %><br>
 
 <div id="mapidtest"></div>
 <br>
@@ -64,7 +64,7 @@
 		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
 		maxZoom: 18,
 		id: 'mapbox.streets',
-		accessToken: 'pk.eyJ1IjoicmVkY296bW8iLCJhIjoiY2pycTlyc2lqMDFqbTQzbnRtd3BzY2NvNyJ9.4ti19HQ3imFniEHgNQxMUg'
+		accessToken: '<%= Rails.application.credentials.dig(:mapbox, :secret_access_key) %>'
 	}).addTo(mymap);
 
 	// marqueur
@@ -116,7 +116,7 @@
 		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
 		maxZoom: 18,
 		id: 'mapbox.streets',
-		accessToken: 'pk.eyJ1IjoicmVkY296bW8iLCJhIjoiY2pycTlyc2lqMDFqbTQzbnRtd3BzY2NvNyJ9.4ti19HQ3imFniEHgNQxMUg'
+		accessToken: '<%= Rails.application.credentials.dig(:mapbox, :secret_access_key) %>'
 	}).addTo(spotsdisplay);
 	// Un marqueur par spot
 	<% @spots.each do |spot| %>
