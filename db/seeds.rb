@@ -9,6 +9,11 @@ require 'faker'
 require 'nokogiri'
 require 'open-uri'
 
+# Seed a user
+#################
+puts 'seeding user..............'
+@user = User.create(email: 'testemail@email.com', password: "testemail", password_confirmation: 'testemail')
+
 # Seed some spots
 #################
 
