@@ -1,5 +1,7 @@
 <!-- Spot display -->
 <h2><%= @spot.name %></h2>
+<p><%= link_to 'Add a tree on this spot', new_tree_path, class: "button-one" %></p>
+<p><%= link_to 'Liste spots', spots_path, class: "button-one" %></p>
 <img alt="" src="<%=@spot.image_url%>">
 <p><%=@spot.description%></p><br>
 <!-- Display number of trees -->
@@ -12,7 +14,6 @@
 <p>affichage carte</p>
 <div id="mapidone"></div>
 <br>
-<%= link_to 'Liste spots', spots_path, class: "button-one" %>
 
 <script type="text/javascript">
   // declaration objet
