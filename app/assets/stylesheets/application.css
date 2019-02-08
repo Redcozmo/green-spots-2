@@ -12,4 +12,12 @@
  *
  *= require_tree .
  *= require_self
+
+ <!-- Bootstrap core CSS -->
+ *= require bootstrap/css/bootstrap.min
+ *= require assets/css/grayscale.min
+ *= require fontawesome-free/css/all.min
  */
+
+
+@import "components/*";
