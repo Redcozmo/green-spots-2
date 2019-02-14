@@ -32,13 +32,10 @@
 
   </head>
 
-  <body>
+  <body id="page-top">
     <%= render "shared/navbar" %>
-    <div class="main-right">
-      <%= render "shared/header" %>
-      <%= yield %>
-      <%= render "shared/footer" %>
-    </div>
-
+    <%= render "shared/header" %>
+    <%= yield %>
+    <%= render "shared/footer" %>
   </body>
 </html>
