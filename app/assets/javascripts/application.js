@@ -16,11 +16,11 @@
 //= require_tree .
 
 // Bootstrap core JavaScript
-//= require jquery/jquery.min
-//= require bootstrap/js/bootstrap.bundle.min
+//= require jquery/jquery
+//= require bootstrap/js/bootstrap.bundle
 
 // Plugin JavaScript
-//= require jquery-easing/jquery.easing.min
+//= require jquery-easing/jquery.easing
 
 // Custom scripts for this template
-//= require assets/js/grayscale.min
+//= require assets/js/grayscale
