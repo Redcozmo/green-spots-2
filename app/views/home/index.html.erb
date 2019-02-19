@@ -1,7 +1,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
   <div class="container">
-    <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">GREEN SPOTS</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       Menu
       <i class="fas fa-bars"></i>
@@ -12,11 +12,29 @@
           <a class="nav-link js-scroll-trigger" href="#about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#projects">Projects</a>
+          <a class="nav-link js-scroll-trigger" href="#projects">Le projet</a>
         </li>
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="#signup">Contact</a>
         </li>
+        <% if user_signed_in? %>
+        	<li class="nav-item">
+        	  <%= link_to 'Déconnexion', destroy_user_session_path, class: "nav-link js-scroll-trigger", method: :delete %>
+        	</li>
+        	<li class="nav-item">
+        		<%= link_to 'Spots', spots_path, class: "nav-link js-scroll-trigger" %>
+        	</li>
+        	<li class="nav-item">
+        		Connecté en tant que : <%= current_user.email %>
+        	</li>
+        	   <%else%>
+          <li class="nav-item">
+             <%= link_to 'Connexion', new_user_session_path, class: "nav-link js-scroll-trigger" %>
+          </li>
+        	<li class="nav-item">
+        	   <%= link_to 'Inscription', new_user_registration_path, class: "nav-link js-scroll-trigger" %>
+        	</li>
+        <% end %>
       </ul>
     </div>
   </div>
@@ -26,9 +44,9 @@
 <header class="masthead">
   <div class="container d-flex h-100 align-items-center">
     <div class="mx-auto text-center">
-      <h1 class="mx-auto my-0 text-uppercase">Grayscale</h1>
-      <h2 class="text-white-50 mx-auto mt-2 mb-5">A free, responsive, one page Bootstrap theme created by Start Bootstrap.</h2>
-      <a href="#about" class="btn btn-primary js-scroll-trigger">Get Started</a>
+      <h1 class="mx-auto my-0 text-uppercase">Green Spots</h1>
+      <h2 class="text-white-50 mx-auto mt-2 mb-5">Comment le numérique peut vous aider à mieux connaitre les arbres autour de vous.</h2>
+      <a href="#about" class="btn btn-primary js-scroll-trigger">Commence l'exploration</a>
     </div>
   </div>
 </header>
@@ -38,9 +56,12 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 mx-auto">
-        <h2 class="text-white mb-4">Built with Bootstrap 4</h2>
-        <p class="text-white-50">Grayscale is a free Bootstrap theme created by Start Bootstrap. It can be yours right now, simply download the template on
-          <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
+        <h2 class="text-white mb-4">Le projet ?</h2>
+        <p class="text-white-50">Permettre aux gens de découvrir une espèce
+          d'arbre en particulier grâce à un positionnement géographique des
+          individus d'espèces. Tu veux savoir à quoi ressemble un oranger des
+          osages et le voir en vrai ?
+        </p>
       </div>
     </div>
     <%= image_tag("ipad.png", class: "img-fluid", alt: "") %>
@@ -58,8 +79,10 @@
       </div>
       <div class="col-xl-4 col-lg-5">
         <div class="featured-text text-center text-lg-left">
-          <h4>Shoreline</h4>
-          <p class="text-black-50 mb-0">Grayscale is open source and MIT licensed. This means you can use it for any project - even commercial projects! Download it, customize it, and publish your website!</p>
+          <h4>A toi de jouer !</h4>
+          <p class="text-black-50 mb-0">Le projet se veut citoyen, à toi de
+            référencer les arbres que tu rencontres.
+          Quelques arbres sont déjà consultables sur la carte !</p>
         </div>
       </div>
     </div>
@@ -73,8 +96,10 @@
         <div class="bg-black text-center h-100 project">
           <div class="d-flex h-100">
             <div class="project-text w-100 my-auto text-center text-lg-left">
-              <h4 class="text-white">Misty</h4>
-              <p class="mb-0 text-white-50">An example of where you can put an image of a project, or anything else, along with a description.</p>
+              <h4 class="text-white">Confirmation croisée</h4>
+              <p class="mb-0 text-white-50">Afin d'être sur de l'espèce des
+              arbres référencés, différentes personnes peuvent confirmer ou non
+            l'espèce d'un arbre.</p>
               <hr class="d-none d-lg-block mb-0 ml-0">
             </div>
           </div>
@@ -91,8 +116,10 @@
         <div class="bg-black text-center h-100 project">
           <div class="d-flex h-100">
             <div class="project-text w-100 my-auto text-center text-lg-right">
-              <h4 class="text-white">Mountains</h4>
-              <p class="mb-0 text-white-50">Another example of a project with its respective description. These sections work well responsively as well, try this theme on a small screen!</p>
+              <h4 class="text-white">Référents natures</h4>
+              <p class="mb-0 text-white-50">Tu es botaniste ou simplement fin
+              connaisseur de la nature ? Tu pourras devenir référent par la
+            qualité et la quantité du référencement d'arbres que tu feras.</p>
               <hr class="d-none d-lg-block mb-0 mr-0">
             </div>
           </div>
@@ -110,11 +137,11 @@
       <div class="col-md-10 col-lg-8 mx-auto text-center">
 
         <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-        <h2 class="text-white mb-5">Subscribe to receive updates!</h2>
+        <h2 class="text-white mb-5">Tu veux être informé des avancées du projet ?</h2>
 
         <form class="form-inline d-flex">
-          <input type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" placeholder="Enter email address...">
-          <button type="submit" class="btn btn-primary mx-auto">Subscribe</button>
+          <input type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" placeholder="Inscris ton adresse mail...">
+          <button type="submit" class="btn btn-primary mx-auto">Oui je le veux !</button>
         </form>
 
       </div>
@@ -179,34 +206,25 @@
   </div>
 </section>
 
+<!-- About Section -->
+<section id="about" class="about-section text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h2 class="text-white mb-4">Built with Bootstrap 4</h2>
+        <p class="text-white-50">Grayscale is a free Bootstrap theme created by Start Bootstrap. It can be yours right now, simply download the template on
+          <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Footer -->
 <footer class="bg-black small text-center text-white-50">
   <div class="container">
-    Copyright &copy; Your Website 2019
+    <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
   </div>
 </footer>
-
-
-<% if user_signed_in? %>
-	<li>
-	  <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-	</li>
-	<li>
-		<%= link_to 'Spots', spots_path %>
-	</li>
-	<li>
-		User connected : <%= current_user.email %>
-	</li>
-	   <%else%>
-  <li>
-     <%= link_to 'Sign In', new_user_session_path %>
-  </li>
-	<li>
-	   <%= link_to 'Sign Up', new_user_registration_path %>
-	</li>
-<% end %>
-Lat : <%= Spot.first.latitude.to_f %>
-Long : <%= Spot.first.longitude.to_f %><br>
 
 <div id="mapidtest"></div>
 <br>
