@@ -83,3 +83,169 @@ Spot.all.count.times do |k|
     @tree.save
   end
 end
+
+################################################################################
+# Prise terrain avec application OSMAnd
+################################################################################
+# server message
+puts '..............Premières données terrain..............'
+# Seed some taxa (plural of taxon)
+##################################
+@tab_taxa2 =
+{ "taxons": [
+  {
+    common_noun: "Cèdre du Liban",
+    family: "Pinacées",
+    genus: "Cedrus",
+    species: "Libani"
+  },
+  {
+    common_noun: "Chêne Pubescent",
+    family: "Fagacées",
+    genus: "Quercus",
+    species: "Pubescens"
+  },
+  {
+    common_noun: "Erable de Cappadoce",
+    family: "Acéracées",
+    genus: "Acer",
+    species: "Cappadocicum"
+  },
+  {
+    common_noun: "Magnolia grandiflora",
+    family: "Magnoliacées",
+    genus: "Magnolia",
+    species: "Grandiflora"
+  },
+  {
+    common_noun: "Marronnier d'Inde",
+    family: "Hippocastanacées",
+    genus: "Aesculus",
+    species: "Hippocastanum"
+  },
+  {
+    common_noun: "Oranger des osages",
+    family: "Moracées",
+    genus: "Maclura",
+    species: "Pomifera"
+  },
+  {
+    common_noun: "Pin parasol, Pin pignon",
+    family: "Pinacées",
+    genus: "Pinus",
+    species: "Pinea"
+  },
+  {
+    common_noun: "Pinus Bengeana",
+    family: "Pinacées",
+    genus: "Pinus",
+    species: "Bengeana"
+  },
+  {
+    common_noun: "Séquoia géant",
+    family: "Taxodiacées",
+    genus: "Sequoiadendron",
+    species: "Giganteum"
+  },
+  {
+    common_noun: "Sequoia Sempervirens",
+    family: "Taxodiacées",
+    genus: "Sequoia",
+    species: "Sempervirens"
+  },
+  {
+    common_noun: "Sophora du Japon",
+    family: "Légumineuses",
+    genus: "Stypholobium",
+    species: "Japonicom"
+  }
+]}
+
+# server message
+puts 'seeding taxa..............'
+
+# seed
+@tab_taxa2[:taxons].length.times do |j|
+  @taxon = Taxon.create(common_noun: @tab_taxa2[:taxons][j][:common_noun],
+                        family: @tab_taxa2[:taxons][j][:family],
+                        genus: @tab_taxa2[:taxons][j][:genus],
+                        species: @tab_taxa2[:taxons][j][:species])
+end
+
+# Seed some trees
+#################
+
+@tab_trees2 = { "trees": [
+  {
+    name: "Cèdre du Liban",
+    latitude: 45.774826,
+    longitude: 4.851204
+  },
+  {
+    name: "Cèdre du Liban",
+    latitude: 45.774864,
+    longitude: 4.8556967
+  },
+  {
+    name: "Chêne Pubescent",
+    latitude: 45.77502,
+    longitude: 4.8579483
+  },
+  {
+    name: "Erable de Cappadoce",
+    latitude: 45.773945,
+    longitude: 4.8555775
+  },
+  {
+    name: "Magnolia grandiflora",
+    latitude: 45.774357,
+    longitude: 4.8553495
+  },
+  {
+    name: "Marronnier d'Inde",
+    latitude: 45.773926,
+    longitude: 4.8546963
+  },
+  {
+    name: "Oranger des osages",
+    latitude: 45.77385,
+    longitude: 4.856053
+  },
+  {
+    name: "Pin parasol, Pin pignon",
+    latitude: 45.77455,
+    longitude: 4.858084
+  },
+  {
+    name: "Pinus Bengeana",
+    latitude: 45.774105,
+     longitude: 4.857193
+   },
+  {
+    name: "Séquoia géant",
+    latitude: 45.780815,
+    longitude: 4.8480725
+  },
+  {
+    name: "Sequoia Sempervirens",
+    latitude: 45.77433,
+    longitude: 4.8569493
+  },
+  {
+    name: "Sophora du Japon",
+    latitude: 45.773834,
+    longitude: 4.8559003
+  }
+]}
+
+# server message
+puts 'seeding trees..............'
+
+@tab_trees2[:trees].length.times do |j|
+  @tree = Tree.create(name: @tab_trees2[:trees][j][:name],
+                      latitude: @tab_trees2[:trees][j][:latitude],
+                      longitude: @tab_trees2[:trees][j][:longitude])
+  @tree.spot = Spot.find_by(name: "Parc de la Tête d'Or")
+  @tree.taxon = Taxon.find_by(common_noun: @tab_trees2[:trees][j][:name])
+  @tree.save
+end
