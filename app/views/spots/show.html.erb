@@ -1,0 +1,27 @@
+<!-- Spot display -->
+<h2><%= @spot.name %></h2>
+<p><%= link_to 'Add a tree on this spot', new_tree_path, class: "button-one" %></p>
+<p><%= link_to 'Liste spots', spots_path, class: "button-one" %></p>
+<img alt="" src="<%=@spot.image_url%>">
+<p><%=@spot.description%></p><br>
+<!-- Display number of trees -->
+<p>Sur ce spot, il y a <%= @spot.trees.count %> arbres identifiés.</p><br>
+<!-- Display different taxa -->
+  Et <%= @spot.taxa_count %> espèces différentes :
+  <%= @spot.taxa_array.join(', ') %>
+<br>
+<!-- Display on map -->
+<p>affichage carte</p>
+<div id="mapidone"></div>
+<br>
+
+<script type="text/javascript">
+  // declaration objet
+  var spotdisplay = L.map('mapidone').setView([45.777411, 4.855225], 13);
+  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox.streets',
+    accessToken: '<%= Rails.application.credentials.dig(:mapbox, :secret_access_key) %>'
+  }).addTo(spotdisplay);
+</script>

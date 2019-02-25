@@ -14,3 +14,13 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+// Bootstrap core JavaScript
+//= require jquery/jquery
+//= require bootstrap/js/bootstrap.bundle
+
+// Plugin JavaScript
+//= require jquery-easing/jquery.easing
+
+// Custom scripts for this template
+//= require assets/js/grayscale
