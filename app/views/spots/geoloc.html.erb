@@ -18,9 +18,16 @@
   // locationfound and locationerror events
   function onLocationFound(e) {
     var radius = e.accuracy / 2;
+    var position = e.latlng.toString();
 
-    L.marker(e.latlng).addTo(mapgeoloc)
-        .bindPopup("You are within " + radius + " meters from this point").openPopup();
+    var marker = L.marker({
+      draggable: true,
+      // riseOnHover: true,
+    	autoPan: true
+    }).setLatLng(e.latlng)
+      .addTo(mapgeoloc)
+      // .bindPopup("You are within " + radius + " meters from this point").openPopup();
+      .bindPopup(position).openPopup();
 
     L.circle(e.latlng, radius).addTo(mapgeoloc);
   }
@@ -33,4 +40,29 @@
   }
 
   mapgeoloc.on('locationerror', onLocationError);
+
+  // interaction avec click map
+  var popup2 = L.popup();
+  function onMapClick(e) {
+    // alert("You clicked the map at " + e.latlng);
+    popup2
+      .setLatLng(e.latlng)
+      .setContent("You clicked the map at " + e.latlng.toString())
+      .openOn(mapgeoloc);
+    var marker2 = L.marker(e.latlng, {
+      draggable: 'true',
+      autoPan: 'true'
+    }).addTo(mapgeoloc);
+    // Update marker on changing it's position
+    marker2.on("dragend", function (ev) {
+
+        var changedPos = ev.target.getLatLng();
+        this.setLatLng(changedPos);
+        this.bindPopup(this.getLatLng()).openPopup();
+        // this.bindPopup(changedPos.toString()).openPopup();
+
+    });
+  }
+  mapgeoloc.on('click', onMapClick);
+
 </script>

@@ -12,7 +12,10 @@
 	}).addTo(mymap);
 
 	// marqueur
-	var marker = L.marker([45.757727, 4.832439]).addTo(mymap);
+	var marker = L.marker([45.757727, 4.832439], {
+    draggable: 'true'
+  }
+    ).addTo(mymap);
 
 	// cercle
 	var circle = L.circle([45.772815, 4.885998], {
@@ -50,6 +53,17 @@
 			.setLatLng(e.latlng)
 			.setContent("You clicked the map at " + e.latlng.toString())
 			.openOn(mymap);
-		}
+    var marker2 = L.marker(e.latlng, {
+      draggable: 'true',
+			autoPan: 'true'
+    }).addTo(mymap);
+		// Update marker on changing it's position
+    marker2.on("dragend", function (ev) {
+
+        var chagedPos = ev.target.getLatLng();
+        this.bindPopup(chagedPos.toString()).openPopup();
+
+    });
+	}
 	mymap.on('click', onMapClick);
 </script>
