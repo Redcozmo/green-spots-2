@@ -24,4 +24,18 @@
     id: 'mapbox.streets',
     accessToken: '<%= Rails.application.credentials.dig(:mapbox, :secret_access_key) %>'
   }).addTo(spotdisplay);
+
+  // One tree, one point/circle
+	<% @spot.trees.each do |tree| %>
+    // cercle
+    var circle = L.circle([<%= tree.latitude.to_f %>, <%= tree.longitude.to_f %>], {
+      color: 'green',
+      fillColor: '#44e654',
+      fillOpacity: 0.5,
+      radius: 2
+    }).addTo(spotdisplay);
+    circle.bindPopup("<b><%= tree.name %></b>").openPopup();
+	<% end %>
+	// Recentrer la vue
+	spotdisplay.setView([<%= @spot.latitude.to_f %>, <%= @spot.longitude.to_f %>], 16);
 </script>
