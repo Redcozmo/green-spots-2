@@ -1,0 +1,58 @@
+<h2>Add a taxon in DB</h2>
+
+<div class="form">
+
+  <%= form_for(@taxon) do |f| %>
+
+  <div class="field">
+    <%= f.label :common_noun %> (Nom commun)<br>
+    <%= f.text_field :common_noun %>
+  </div>
+
+  <div class="field">
+    <%= f.label :family %> (Famille)<br>
+    <%= f.text_field :family %>
+    <div class="form-group">
+      <label for="myBrowser">Family : </label>
+      <input list="browsers" id="myBrowser" name="myBrowser" />
+      <datalist id="browsers">
+        <% @taxons.each do |taxon| %>
+          <option value="<%= taxon.family %>">
+        <% end %>
+      </datalist>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :genus %> (Genre)<br>
+    <%= f.text_field :genus %>
+    <div class="form-group">
+      <label for="myBrowser">Genus : </label>
+      <input list="browsers" id="myBrowser" name="myBrowser" />
+      <datalist id="browsers">
+        <% @taxons.each do |taxon| %>
+          <option value="<%= taxon.genus %>">
+        <% end %>
+      </datalist>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :species %> (Espèce)<br>
+    <%= f.text_field :species %>
+    <div class="form-group">
+      <label for="myBrowser">Species : </label>
+      <input list="browsers" id="myBrowser" name="myBrowser" />
+      <datalist id="browsers">
+        <% @taxons.each do |taxon| %>
+          <option value="<%= taxon.species %>">
+        <% end %>
+      </datalist>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <% end %>
+</div>
