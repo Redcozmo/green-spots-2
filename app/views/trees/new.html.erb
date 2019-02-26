@@ -1,38 +1,87 @@
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<h2>Add a tree on the spot : nom du spot</h2>
 
-<div id="mapgeoloc"></div>
+<div class="form">
+
+  <%= form_for(@tree) do |f| %>
+
+  <div class="field">
+    <%= f.label :name %> (optionnel)<br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %> (optionnel)<br>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :taxon %><br>
+    <%= f.text_field :taxon %>
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Taxon :</label>
+      <select class="form-control" id="exampleFormControlSelect1">
+        <% @taxons.each do |taxon| %>
+        <option><%= taxon.common_noun %></option>
+        <% end %>
+      </select>
+    </div>
+  </div>
+
+    <div class="form-group">
+      <label for="myBrowser">Taxon : </label>
+      <input list="browsers" id="myBrowser" name="myBrowser" />
+      <datalist id="browsers">
+        <% @taxons.each do |taxon| %>
+          <option value="<%= taxon.common_noun %>">
+        <% end %>
+      </datalist>
+
+  <div class="field">
+    <%= f.label :latitude %> <%= f.label :longitude %><br>
+    <%= f.text_field :latitude %> <%= f.text_field :longitude %>
+  </div>
+
+  <div id="mapgeoloc-add-tree"></div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <% end %>
+</div>
+
+
 
 <script type="text/javascript">
   // initialize the map object
-  var mapgeoloc = L.map('mapgeoloc').fitWorld();
+  var mapgeoloc_add_tree = L.map('mapgeoloc-add-tree').fitWorld();
 
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
     id: 'mapbox.streets',
 		accessToken: '<%= Rails.application.credentials.dig(:mapbox, :secret_access_key) %>'
-  }).addTo(mapgeoloc);
+  }).addTo(mapgeoloc_add_tree);
 
   // zooming the map view to the detected location
-  mapgeoloc.locate({setView: true, maxZoom: 16});
+  mapgeoloc_add_tree.locate({setView: true, maxZoom: 16});
 
   // locationfound and locationerror events
   function onLocationFound(e) {
     var radius = e.accuracy / 2;
 
-    L.marker(e.latlng).addTo(mapgeoloc)
+    L.marker(e.latlng).addTo(mapgeoloc_add_tree)
         .bindPopup("You are within " + radius + " meters from this point").openPopup();
 
-    L.circle(e.latlng, radius).addTo(mapgeoloc);
+    L.circle(e.latlng, radius).addTo(mapgeoloc_add_tree);
   }
 
-  mapgeoloc.on('locationfound', onLocationFound);
+  mapgeoloc_add_tree.on('locationfound', onLocationFound);
 
   // message if the geolocation failed
   function onLocationError(e) {
     alert(e.message);
   }
 
-  mapgeoloc.on('locationerror', onLocationError);
+  mapgeoloc_add_tree.on('locationerror', onLocationError);
 
 </script>
