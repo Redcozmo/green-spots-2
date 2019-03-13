@@ -38,6 +38,12 @@
           <option value="<%= taxon.common_noun %>">
         <% end %>
       </datalist>
+    </div>
+
+    <div class="form-group">
+      <label for="taxon">Taxon</label>
+      <%= f.select :taxon_id, Taxon.pluck(:common_noun, :id) %>
+    </div>
 
   <div class="field">
     <%= f.label :latitude %> <%= f.label :longitude %><br>
@@ -51,8 +57,6 @@
   </div>
   <% end %>
 </div>
-
-
 
 <script type="text/javascript">
   // initialize the map object
