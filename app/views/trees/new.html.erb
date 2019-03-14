@@ -19,6 +19,11 @@
     <%= f.select :taxon_id, Taxon.pluck(:common_noun, :id) %>
   </div>
 
+  <div class="form-group">
+    <label for="spot">Spot</label>
+    <%= f.select :spot_id, Spot.pluck(:name, :id) %>
+  </div>
+
   <div class="form-group-add">
     <%= link_to 'Add a new Taxon', new_taxon_path %>
   </div>
