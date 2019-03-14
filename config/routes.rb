@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'home/index'
   root 'home#index'
+  get 'home/landing', to: 'home#landing'
 
+  get 'spots/show_map', to: 'spots#show_map'
   get 'spots/map', to: 'spots#map'
   get 'spots/map_test', to: 'spots#map_test'
   get 'spots/geoloc', to: 'spots#geoloc'

@@ -11,6 +11,10 @@ class SpotsController < ApplicationController
     @spot = Spot.find(params[:id])
   end
 
+  def show_map
+    @spot = Spot.find(params[:id])
+  end
+
   def map
     @spots = Spot.all
   end

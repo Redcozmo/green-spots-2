@@ -1,30 +1,38 @@
-<div class = "spots">
-  <!-- display all spots in a page -->
-  <% @spots.each do |spot| %>
-  <div class="col-md-4">
-    <div class="card hovercard">
-        <div class="avatar">
-          <img alt="" src="<%=spot.image_url%>">
+<h1>Spots</h1>
+
+<div class="container">
+  <div class="row">
+    <% @spots.each do |spot| %>
+      <div class="col-12 col-md-6 col-lg-3">
+      <!-- display all spots in a page -->
+        <div class="card">
+          <img class="card-img-top" src="<%= spot.image_url %>" alt="Unsplash">
+          <div class="card-header">
+            <h5 class="card-title mb-0"><%= spot.name %></h5>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="">
+                <span class="badge badge-pill badge-info"><%= spot.trees.count %></span>
+              </div>
+              <div class="">
+                <p>Arbres localisés</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="">
+                <span class="badge badge-pill badge-info"><%= spot.taxa_count %></span>
+              </div>
+              <div class="">
+                <p>Espèces identifiées</p>
+              </div>
+            </div>
+            <p><%= link_to 'Détails', spot, class: "btn btn-info" %></p>
+            <%= puts spots_show_map_path(spot.id) %>
+            <p><%= link_to 'Carte', spots_show_map_path(spot.id), class: "btn btn-primary" %></p>
+          </div>
         </div>
-        <div class="info">
-            <div class="title">
-                <h4><%=spot.name%></h4><br>
-            </div>
-            <div class="bottom">
-                <p><%=spot.description%></p><br>
-            </div>
-            <!-- Display number of trees -->
-            <p>Sur ce spot, il y a <%= spot.trees.count %> arbres identifiés.</p><br>
-            <!-- Display different taxa -->
-            <div>
-              Et <%= spot.taxa_count %> espèces différentes :
-              <%= spot.taxa_array.join(', ') %>
-            </div>
-            <br>
-            <%= link_to 'Détails', spot, class: "button-one" %>
-        </div>
-    </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
 </div>
-<br>
