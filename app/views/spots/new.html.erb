@@ -1,1 +1,63 @@
-<h1>new spot</h1>
+<h2>Nouveau spot</h2>
+
+<div class="form">
+
+  <%= form_for(@spot) do |f| %>
+
+  <div class="field">
+    <%= f.label :name %> (optionnel)<br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %> (optionnel)<br>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :latitude %> <%= f.label :longitude %><br>
+    <%= f.text_field :latitude %> <%= f.text_field :longitude %>
+  </div>
+
+  <div id="mapgeoloc-add-spot"></div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+  // initialize the map object
+  var mapgeoloc_add_tree = L.map('mapgeoloc-add-spot').fitWorld();
+
+  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox.streets',
+		accessToken: '<%= Rails.application.credentials.dig(:mapbox, :secret_access_key) %>'
+  }).addTo(mapgeoloc_add_tree);
+
+  // zooming the map view to the detected location
+  mapgeoloc_add_tree.locate({setView: true, maxZoom: 16});
+
+  // locationfound and locationerror events
+  function onLocationFound(e) {
+    var radius = e.accuracy / 2;
+
+    L.marker(e.latlng).addTo(mapgeoloc_add_tree)
+        .bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+    L.circle(e.latlng, radius).addTo(mapgeoloc_add_tree);
+  }
+
+  mapgeoloc_add_tree.on('locationfound', onLocationFound);
+
+  // message if the geolocation failed
+  function onLocationError(e) {
+    alert(e.message);
+  }
+
+  mapgeoloc_add_tree.on('locationerror', onLocationError);
+
+</script>
