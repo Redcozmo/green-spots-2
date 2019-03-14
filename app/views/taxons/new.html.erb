@@ -11,44 +11,17 @@
 
   <div class="field">
     <%= f.label :family %> (Famille)<br>
-    <%= f.text_field :family %>
-    <div class="form-group">
-      <label for="myBrowser">Family : </label>
-      <input list="browsers" id="myBrowser" name="myBrowser" />
-      <datalist id="browsers">
-        <% @taxons.each do |taxon| %>
-          <option value="<%= taxon.family %>">
-        <% end %>
-      </datalist>
-    </div>
+    <%= f.select :family, Taxon.pluck(:family) %>
   </div>
 
   <div class="field">
     <%= f.label :genus %> (Genre)<br>
-    <%= f.text_field :genus %>
-    <div class="form-group">
-      <label for="myBrowser">Genus : </label>
-      <input list="browsers" id="myBrowser" name="myBrowser" />
-      <datalist id="browsers">
-        <% @taxons.each do |taxon| %>
-          <option value="<%= taxon.genus %>">
-        <% end %>
-      </datalist>
-    </div>
+    <%= f.select :genus, Taxon.pluck(:genus) %>
   </div>
 
   <div class="field">
     <%= f.label :species %> (Espèce)<br>
-    <%= f.text_field :species %>
-    <div class="form-group">
-      <label for="myBrowser">Species : </label>
-      <input list="browsers" id="myBrowser" name="myBrowser" />
-      <datalist id="browsers">
-        <% @taxons.each do |taxon| %>
-          <option value="<%= taxon.species %>">
-        <% end %>
-      </datalist>
-    </div>
+    <%= f.select :species, Taxon.pluck(:species) %>
   </div>
 
   <div class="actions">

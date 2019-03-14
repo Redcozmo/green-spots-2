@@ -14,36 +14,14 @@
     <%= f.text_area :description %>
   </div>
 
-  <div class="field">
-    <%= f.label :taxon %><br>
-    <%= f.text_field :taxon %>
-    <div class="form-group">
-      <label for="exampleFormControlSelect1">Taxon :</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <% @taxons.each do |taxon| %>
-        <option><%= taxon.common_noun %></option>
-        <% end %>
-      </select>
-    </div>
-    <div class="form-group-add">
-      <%= link_to 'Add a Taxon', new_taxon_path %>
-    </div>
+  <div class="form-group">
+    <label for="taxon">Taxon</label>
+    <%= f.select :taxon_id, Taxon.pluck(:common_noun, :id) %>
   </div>
 
-    <div class="form-group">
-      <label for="myBrowser">Taxon : </label>
-      <input list="browsers" id="myBrowser" name="myBrowser" />
-      <datalist id="browsers">
-        <% @taxons.each do |taxon| %>
-          <option value="<%= taxon.common_noun %>">
-        <% end %>
-      </datalist>
-    </div>
-
-    <div class="form-group">
-      <label for="taxon">Taxon</label>
-      <%= f.select :taxon_id, Taxon.pluck(:common_noun, :id) %>
-    </div>
+  <div class="form-group-add">
+    <%= link_to 'Add a new Taxon', new_taxon_path %>
+  </div>
 
   <div class="field">
     <%= f.label :latitude %> <%= f.label :longitude %><br>
