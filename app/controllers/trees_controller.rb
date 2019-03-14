@@ -8,4 +8,10 @@ class TreesController < ApplicationController
     @trees = Tree.all
   end
 
+  def map
+    @trees = Tree.all
+    puts "#{Tree.first.name}"
+    puts "#{Tree.last.name}"
+  end
+
 end
