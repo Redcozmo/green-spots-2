@@ -49,7 +49,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to 'Déconnexion', destroy_user_session_path, class: "dropdown-item", method: :delete %>
             <div class="dropdown-divider"></div>
-            <%= link_to 'Profil', user_registration_path, class: "dropdown-item" %>
+            <%= link_to 'Profil', edit_user_registration_path, class: "dropdown-item" %>
           </div>
 
         <%else%>

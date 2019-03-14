@@ -1,16 +1,42 @@
-<h2>Resend unlock instructions</h2>
+<main class="main h-100 w-100">
+	<div class="container h-100">
+		<div class="row h-100">
+			<div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+				<div class="d-table-cell align-middle">
 
-<%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+					<div class="text-center mt-4">
+						<h1 class="h2">Resend unlock instructions</h1>
+						<p class="lead">
+						</p>
+					</div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <div class="card">
+						<div class="card-body">
+							<div class="m-sm-4">
+
+                <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+                  <%= devise_error_messages! %>
+
+                  <div class="form-group">
+                    <%= f.label :email %><br />
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control-lg", placeholder: "Your email" %>
+                  </div>
+
+                  <div class="text-center mt-3">
+                    <%= f.submit "Resend unlock instructions" %>
+                  </div>
+                <% end %>
+
+                <div class="text-center">
+                  <%= render "devise/shared/links" %>
+                </div>
+
+              </div>
+  					</div>
+  				</div>
+
+  			</div>
+  		</div>
+  	</div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Resend unlock instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</main>
