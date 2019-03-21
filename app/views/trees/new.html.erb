@@ -1,45 +1,68 @@
-<h2>Add a tree on the spot : nom du spot</h2>
+<main class="main h-100 w-100">
+	<div class="container h-100">
+		<div class="row h-100">
+			<div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+				<div class="d-table-cell align-middle">
 
-<div class="form">
+					<div class="text-center mt-4">
+						<h1 class="h2">Add a tree on the spot</h1>
+						<p class="lead">
+							Merci de vouloir contribuer !
+						</p>
+					</div>
 
-  <%= form_for(@tree) do |f| %>
+					<div class="card">
+						<div class="card-body">
+							<div class="m-sm-4">
 
-  <div class="field">
-    <%= f.label :name %> (optionnel)<br>
-    <%= f.text_field :name %>
-  </div>
+                <%= form_for(@tree) do |f| %>
 
-  <div class="field">
-    <%= f.label :description %> (optionnel)<br>
-    <%= f.text_area :description %>
-  </div>
+                <div class="form-group">
+                  <%= f.label :name %> (optionnel)<br>
+                  <%= f.text_field :name, class: "form-control form-control-lg", placeholder: "Enter name of spot" %>
+                </div>
 
-  <div class="form-group">
-    <label for="taxon">Taxon</label>
-    <%= f.select :taxon_id, Taxon.pluck(:common_noun, :id) %>
-  </div>
+                <div class="form-group">
+                  <%= f.label :description %> (optionnel)<br>
+                  <%= f.text_area :description, class: "form-control form-control-lg", placeholder: "Description" %>
+                </div>
 
-  <div class="form-group">
-    <label for="spot">Spot</label>
-    <%= f.select :spot_id, Spot.pluck(:name, :id) %>
-  </div>
+                <div class="form-group">
+                  <label for="taxon">Taxon</label>
+                  <%= f.select :taxon_id, Taxon.pluck(:common_noun, :id), class: "form-control form-control-lg" %>
+                </div>
 
-  <div class="form-group-add">
-    <%= link_to 'Add a new Taxon', new_taxon_path %>
-  </div>
+                <div class="form-group">
+                  <label for="spot">Spot</label>
+                  <%= f.select :spot_id, Spot.pluck(:name, :id), class: "form-control form-control-lg" %>
+                </div>
 
-  <div class="field">
-    <%= f.label :latitude %> <%= f.label :longitude %><br>
-    <%= f.text_field :latitude %> <%= f.text_field :longitude %>
-  </div>
+                <div class="form-group">
+                  <%= link_to 'Add a new Taxon', new_taxon_path %>
+                </div>
 
-  <div id="mapgeoloc-add-tree"></div>
+                <div class="form-group">
+                  <%= f.label :latitude %> <%= f.label :longitude %><br>
+                  <%= f.text_field :latitude, class: "form-control form-control-lg", placeholder: "Latitude" %>
+                  <%= f.text_field :longitude, class: "form-control form-control-lg", placeholder: "Longitude" %>
+                </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-  <% end %>
-</div>
+                <div id="mapgeoloc-add-tree"></div>
+
+                <div class="text-center mt-3">
+                  <%= f.submit %>
+                </div>
+                <% end %>
+              </div>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
 
 <script type="text/javascript">
   // initialize the map object
