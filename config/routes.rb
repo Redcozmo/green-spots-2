@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'home/landing', to: 'home#landing'
 
-  get 'spots/show_map', to: 'spots#show_map'
+  get 'spots/:id/show_map', to: 'spots#show_map', as: 'spots/show_map'
   get 'spots/map', to: 'spots#map'
   get 'trees/map', to: 'trees#map'
   get 'spots/map_test', to: 'spots#map_test'
