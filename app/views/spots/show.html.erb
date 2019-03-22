@@ -47,7 +47,7 @@
                 <p>Sur ce spot il y a <%= @spot.trees.count %> arbres localisés.</p>
               </div>
               <div class="tab-pane fade" id="carte" role="tabpanel" aria-labelledby="carte-tab">
-                <p>Carte</p>
+                <p><%= link_to 'Carte', spots_show_map_path(@spot.id), class: "btn btn-primary" %></p>
               </div>
             </div>
           </div>
