@@ -1,77 +1,76 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">Green Spots</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="/">GREEN SPOTS</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav container">
 
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Spots
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to 'Liste', spots_path, class: "dropdown-item" %>
-          <%= link_to 'Carte', spots_map_path, class: "dropdown-item" %>
-          <%= link_to 'Ajouter un spot', new_spot_path, class: "dropdown-item" %>
-        </div>
-      </li>
-
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Arbres
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to 'Liste', trees_path, class: "dropdown-item" %>
-          <%= link_to 'Carte', trees_map_path, class: "dropdown-item" %>
-          <%= link_to 'Ajouter un arbre', new_tree_path, class: "dropdown-item" %>
-        </div>
-      </li>
-
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Taxons
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to 'Liste', taxons_path, class: "dropdown-item" %>
-          <%= link_to 'Ajouter un taxon', new_taxon_path, class: "dropdown-item" %>
-        </div>
-      </li>
-
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Cartes
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to 'Carte test', spots_map_test_path, class: "dropdown-item" %>
-          <%= link_to 'Geoloc', spots_geoloc_path, class: "dropdown-item" %>
-        </div>
-      </li>
-
-      <li class="nav-item dropdown">
-
-        <% if user_signed_in? %>
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= current_user.email %>
+            Spots
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to 'Déconnexion', destroy_user_session_path, class: "dropdown-item", method: :delete %>
-            <div class="dropdown-divider"></div>
-            <%= link_to 'Profil', edit_user_registration_path, class: "dropdown-item" %>
+            <%= link_to 'Liste', spots_path, class: "dropdown-item" %>
+            <%= link_to 'Carte', spots_map_path, class: "dropdown-item" %>
+            <%= link_to 'Ajouter un spot', new_spot_path, class: "dropdown-item" %>
           </div>
+        </li>
 
-        <%else%>
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Sign In / Sing Up
+            Arbres
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to 'Connexion', new_user_session_path, class: "dropdown-item" %>
-            <%= link_to 'Inscription', new_user_registration_path, class: "dropdown-item" %>
+            <%= link_to 'Liste', trees_path, class: "dropdown-item" %>
+            <%= link_to 'Carte', trees_map_path, class: "dropdown-item" %>
+            <%= link_to 'Ajouter un arbre', new_tree_path, class: "dropdown-item" %>
           </div>
-        <% end %>
+        </li>
 
-      </li>
-      
-    </ul>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Taxons
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to 'Liste', taxons_path, class: "dropdown-item" %>
+            <%= link_to 'Ajouter un taxon', new_taxon_path, class: "dropdown-item" %>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Cartes
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to 'Carte test', spots_map_test_path, class: "dropdown-item" %>
+            <%= link_to 'Geoloc', spots_geoloc_path, class: "dropdown-item" %>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+
+          <% if user_signed_in? %>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= current_user.email %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to 'Déconnexion', destroy_user_session_path, class: "dropdown-item", method: :delete %>
+              <div class="dropdown-divider"></div>
+              <%= link_to 'Profil', edit_user_registration_path, class: "dropdown-item" %>
+            </div>
+
+          <%else%>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Sign In / Sing Up
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to 'Connexion', new_user_session_path, class: "dropdown-item" %>
+              <%= link_to 'Inscription', new_user_registration_path, class: "dropdown-item" %>
+            </div>
+          <% end %>
+
+        </li>
+
+      </ul>
+    </div>
   </div>
 </nav>
