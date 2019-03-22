@@ -1,35 +1,62 @@
 <!-- Spot display -->
-<p><%= link_to '<< Revenir à la liste', spots_path, class: "btn btn-primary" %></p>
+<main class="main h-100 w-100">
+	<div class="container h-100">
+		<div class="row h-100">
+			<div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+				<div class="d-table-cell align-middle">
 
-<div class="container">
-  <div class="col-12 col-md-6 col-lg-3">
-  <!-- display all spots in a page -->
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-          aria-selected="true">Photo</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
-          aria-selected="false">Arbres</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
-          aria-selected="false">Espèces</a>
-      </li>
-    </ul>
-    <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-        <img class="card-img-top" src="<%= @spot.image_url %>" alt="Unsplash">
-      </div>
-      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-        <p>Sur ce spot, il y a <%= @spot.trees.count %> arbres identifiés.</p>
-      </div>
-      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-        <%= @spot.taxa_array.each do |taxon| %>
-          <span class="badge badge-pill badge-info"><%= taxon %></span>
-        <% end %>
+          <div class="text-center mt-4">
+            <p class="h2"><%= link_to '<< Revenir à la liste', spots_path, class: "btn btn-primary" %></p>
+          </div>
+          <div class="text-center mt-4">
+						<p class="lead">
+							<%= @spot.name %>
+						</p>
+					</div>
+          <!-- display all spots in a page -->
+          <div>
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="photos-tab" data-toggle="tab" href="#photos" role="tab" aria-controls="photos"
+                  aria-selected="true">Photos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="especes-tab" data-toggle="tab" href="#especes" role="tab" aria-controls="especes"
+                  aria-selected="false">Espèces</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="arbres-tab" data-toggle="tab" href="#arbres" role="tab" aria-controls="arbres"
+                  aria-selected="false">Arbres</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="carte-tab" data-toggle="tab" href="#carte" role="tab" aria-controls="carte"
+                  aria-selected="false">Carte</a>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="photos" role="tabpanel" aria-labelledby="photos-tab">
+                <img class="card-img-top" src="<%= @spot.image_url %>" alt="Unsplash">
+              </div>
+              <div class="tab-pane fade" id="especes" role="tabpanel" aria-labelledby="especes-tab">
+                <p>Sur ce spot il y a <%= @spot.taxa_count %> espèces identifiés.</p>
+                <%= @spot.taxa_array.each do |taxon| %>
+                  <span class="badge badge-pill badge-info"><%= taxon %></span>
+                <% end %>
+              </div>
+              <div class="tab-pane fade" id="arbres" role="tabpanel" aria-labelledby="arbres-tab">
+                <p>Sur ce spot il y a <%= @spot.trees.count %> arbres localisés.</p>
+              </div>
+              <div class="tab-pane fade" id="carte" role="tabpanel" aria-labelledby="carte-tab">
+                <p>Carte</p>
+              </div>
+            </div>
+          </div>
+          <div class="text-center mt-4">
+            <p class="h2"><%= link_to '<< Revenir à la liste', spots_path, class: "btn btn-primary" %></p>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
-</div>
+</main>
