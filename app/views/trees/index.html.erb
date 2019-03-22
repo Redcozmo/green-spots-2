@@ -1,0 +1,72 @@
+<main class="content">
+  <div class="container-fluid p-0">
+
+    <h1 class="h3 mb-3">Liste des arbres</h1>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title">A finir...</h5>
+            <h6 class="card-subtitle text-muted">Reste à ajouter le javascript qui permet le tri et le responsive</h6>
+          </div>
+          <div class="card-body">
+
+            <table id="datatables-basic" class="table table-striped" style="width:100%">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nom</th>
+                  <th>Nom commun</th>
+                  <th>Spot</th>
+                  <th>Latitude</th>
+                  <th>Longitude</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @trees.each do |tree| %>
+                  <tr>
+                    <td><%= tree.id %></td>
+                    <td><%= tree.name %></td>
+                    <td><%= tree.taxon.common_noun %></td>
+                    <td><%= tree.spot.name %></td>
+                    <td><%= tree.latitude %></td>
+                    <td><%= tree.longitude %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>ID</th>
+                  <th>Nom</th>
+                  <th>Nom commun</th>
+                  <th>Spot</th>
+                  <th>Latitude</th>
+                  <th>Longitude</th>
+                </tr>
+              </tfoot>
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <script>
+      document.addEventListener("DOMContentLoaded", function(event) {
+        // Datatables basic
+        $('#datatables-basic').DataTable({
+          responsive: true
+        });
+        // Datatables with Buttons
+        var datatablesButtons = $('#datatables-buttons').DataTable({
+          lengthChange: !1,
+          buttons: ["copy", "print"],
+          responsive: true
+        });
+        datatablesButtons.buttons().container().appendTo("#datatables-buttons_wrapper .col-md-6:eq(0)")
+      });
+    </script> -->
+
+  </div>
+</main>
