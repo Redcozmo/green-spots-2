@@ -21,6 +21,3 @@
 
 // Plugin JavaScript
 //= require jquery-easing/jquery.easing
-
-// Custom scripts for this template
-//= require assets/js/grayscale

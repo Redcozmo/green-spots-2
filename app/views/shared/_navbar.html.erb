@@ -1,55 +1,59 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-  <div class="container">
+  <div class="container-fluid">
     <a class="navbar-brand" href="/">GREEN SPOTS</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav container">
+      <div class="navbar-nav container d-flex justify-content-between">
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Spots
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to 'Liste', spots_path, class: "dropdown-item" %>
-            <%= link_to 'Carte', spots_map_path, class: "dropdown-item" %>
-            <%= link_to 'Ajouter un spot', new_spot_path, class: "dropdown-item" %>
+        <div class="d-flex flex-row">
+
+          <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Spots
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to 'Liste', spots_path, class: "dropdown-item" %>
+              <%= link_to 'Carte', spots_map_path, class: "dropdown-item" %>
+              <%= link_to 'Ajouter un spot', new_spot_path, class: "dropdown-item" %>
+            </div>
           </div>
-        </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Arbres
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to 'Liste', trees_path, class: "dropdown-item" %>
-            <%= link_to 'Carte', trees_map_path, class: "dropdown-item" %>
-            <%= link_to 'Ajouter un arbre', new_tree_path, class: "dropdown-item" %>
+          <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Arbres
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to 'Liste', trees_path, class: "dropdown-item" %>
+              <%= link_to 'Carte', trees_map_path, class: "dropdown-item" %>
+              <%= link_to 'Ajouter un arbre', new_tree_path, class: "dropdown-item" %>
+            </div>
           </div>
-        </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Taxons
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to 'Liste', taxons_path, class: "dropdown-item" %>
-            <%= link_to 'Ajouter un taxon', new_taxon_path, class: "dropdown-item" %>
+          <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Taxons
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to 'Liste', taxons_path, class: "dropdown-item" %>
+              <%= link_to 'Ajouter un taxon', new_taxon_path, class: "dropdown-item" %>
+            </div>
           </div>
-        </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Cartes
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to 'Carte test', spots_map_test_path, class: "dropdown-item" %>
-            <%= link_to 'Geoloc', spots_geoloc_path, class: "dropdown-item" %>
+          <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Cartes
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to 'Carte test', spots_map_test_path, class: "dropdown-item" %>
+              <%= link_to 'Geoloc', spots_geoloc_path, class: "dropdown-item" %>
+            </div>
           </div>
-        </li>
 
-        <li class="nav-item dropdown">
+        </div>
+
+        <div class="nav-item dropdown">
 
           <% if user_signed_in? %>
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -61,7 +65,7 @@
               <%= link_to 'Profil', edit_user_registration_path, class: "dropdown-item" %>
             </div>
 
-          <%else%>
+          <% else %>
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Sign In / Sing Up
             </a>
@@ -71,9 +75,9 @@
             </div>
           <% end %>
 
-        </li>
+        </div>
 
-      </ul>
+      </div>
     </div>
   </div>
 </nav>
