@@ -18,5 +18,7 @@
  *= require fontawesome-free/css/all
  */
 
-
-/* @import "components/*"; */
+@import 'bootstrap';
+@import 'components/*';
+@import 'home';
+@import 'colors';
