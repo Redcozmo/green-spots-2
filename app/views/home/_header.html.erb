@@ -1,0 +1,14 @@
+<header class="container-fluid py-5 background-raisin-black">
+  <div class="container d-flex h-100 align-items-center">
+    <div class="mx-auto text-center">
+      <h1 class="mx-auto my-0 white text-uppercase">GEO TREE</h1>
+      <h2 class="mx-auto mt-2 mb-5 white">Comment le numérique peut vous aider à mieux connaitre les arbres autour de vous.</h2>
+      <a href="<%= trees_map_path %>" class="btn btn-success">Commence l'exploration</a>
+      <h4 class="text-white-50 mx-auto mt-2 mb-5">
+        <em class="btn btn-success"><%= @spots.count %> spots</em>
+        <em class="btn btn-success"><%= @trees.count %> arbres</em>
+        <em class="btn btn-success"><%= @taxons.count %> espèces</em>
+      </h4>
+    </div>
+  </div>
+</header>

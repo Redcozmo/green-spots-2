@@ -1,100 +1,17 @@
 <!-- En construction -->
-<section id="" class="text-center py-5 background-raisin-black">
-  <div class="container-fluid">
-    <h2 class="text-white-50">SITE EN CONSTRUCTION</h2>
-  </div>
-</section>
+<%= render "home/first_message" %>
 
 <!-- Header -->
-<header class="container-fluid py-5 background-raisin-black">
-  <div class="container d-flex h-100 align-items-center">
-    <div class="mx-auto text-center">
-      <h1 class="mx-auto my-0 text-uppercase">Green Spots</h1>
-      <h2 class="mx-auto mt-2 mb-5">Comment le numérique peut vous aider à mieux connaitre les arbres autour de vous.</h2>
-      <a href="<%= trees_map_path %>" class="btn btn-success">Commence l'exploration</a>
-      <h4 class="text-white-50 mx-auto mt-2 mb-5">
-        <em class="btn btn-success"><%= @spots.count %> spots</em>
-        <em class="btn btn-success"><%= @trees.count %> arbres</em>
-        <em class="btn btn-success"><%= @taxons.count %> espèces</em>
-      </h4>
-    </div>
-  </div>
-</header>
+<%= render "home/header" %>
 
 <!-- About Section -->
-<section id="about" class="about-section text-center py-5 background-white">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-8 mx-auto">
-        <h2 class="text-white mb-4">Le projet ?</h2>
-        <p class="text-white-50">Permettre aux gens de découvrir une espèce
-          d'arbre en particulier grâce à un positionnement géographique des
-          individus d'espèces. Tu veux savoir à quoi ressemble un oranger des
-          osages et le voir en vrai ?
-        </p>
-      </div>
-    </div>
-    <%= image_tag("", class: "img-fluid", alt: "") %>
-  </div>
-</section>
+<%= render "home/about" %>
 
 <!-- Projects Section -->
-<section id="projects" class="projects-section py-5 background-raisin-black">
-  <div class="container-fluid">
+<%= render "home/project" %>
 
-    <div class="row align-items-center">
-
-      <div class="w-100 my-auto text-lg-left col-lg-4">
-        <h4 class="text-white">A toi de jouer !</h4>
-        <p class="mb-0 text-white-50">Le projet se veut citoyen, à toi de
-          référencer les arbres que tu rencontres.
-          Quelques arbres sont déjà consultables sur la carte !
-        </p>
-      </div>
-
-      <div class="w-100 my-auto text-lg-left col-lg-4">
-        <h4 class="text-white">Confirmation croisée</h4>
-        <p class="mb-0 text-white-50">Afin d'être sur de l'espèce des
-          arbres référencés, différentes personnes peuvent confirmer ou non
-          l'espèce d'un arbre.
-        </p>
-      </div>
-
-      <div class="w-100 my-auto text-lg-left col-lg-4">
-        <h4 class="text-white">Référents natures</h4>
-        <p class="mb-0 text-white-50">Tu es botaniste ou simplement fin
-          connaisseur de la nature ? Tu pourras devenir référent par la
-          qualité et la quantité du référencement d'arbres que tu feras.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- Signup Section -->
-<section id="signup" class="signup-section py-5 background-white">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-10 col-lg-8 mx-auto text-center">
-
-        <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-        <h2 class="text-white mb-5">Tu veux être informé des avancées du projet ?</h2>
-
-        <form class="form-inline d-flex">
-          <input type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" placeholder="Inscris ton adresse mail...">
-          <button type="submit" class="btn btn-primary mx-auto">Je m'inscris !</button>
-        </form>
-
-      </div>
-    </div>
-  </div>
-</section>
+<!-- Newsletter Section -->
+<%= render "home/newsletter" %>
 
 <!-- Contact Section -->
-<section class="contact-section bg-black py-5 background-raisin-black">
-  <div class="container-fluid">
-    <p class="text-white mb-5">HOHO</p>
-  </div>
-</section>
+<%= render "home/contact" %>

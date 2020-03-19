@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-light fixed-top background-raisin-black">
+<nav class="navbar navbar-expand-lg fixed-top background-raisin-black">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/"><span class="white">GREEN SPOTS</span></a>
+    <a class="navbar-brand" href="/"><span class="white">GEO TREE</span></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -10,8 +10,8 @@
         <div class="d-flex flex-row">
 
           <div class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Spots
+            <a class="nav-link dropdown-toggle white text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Jardins
             </a>
             <div class="dropdown-menu white" aria-labelledby="navbarDropdown">
               <%= link_to 'Liste', spots_path, class: "dropdown-item" %>
@@ -21,7 +21,7 @@
           </div>
 
           <div class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle white text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Arbres
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -32,7 +32,7 @@
           </div>
 
           <div class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle white text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Taxons
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -42,7 +42,7 @@
           </div>
 
           <div class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle white text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Cartes
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -56,7 +56,7 @@
         <div class="nav-item dropdown">
 
           <% if user_signed_in? %>
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle white text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= current_user.email %>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -66,7 +66,7 @@
             </div>
 
           <% else %>
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle white text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Sign In / Sing Up
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
