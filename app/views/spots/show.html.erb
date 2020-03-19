@@ -39,7 +39,7 @@
               </div>
               <div class="tab-pane fade" id="especes" role="tabpanel" aria-labelledby="especes-tab">
                 <p>Sur ce spot il y a <%= @spot.taxa_count %> espèces identifiés.</p>
-                <% @spot.taxa_array.each do |taxon| %>
+                <% @spot.taxa_array.sort_by { |word| word.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').downcase.to_s }.each do |taxon| %>
                   <span class="badge badge-pill badge-info"><%= taxon %></span>
                 <% end %>
               </div>
