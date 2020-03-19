@@ -2,13 +2,18 @@
   <div class="container d-flex h-100 align-items-center">
     <div class="mx-auto text-center">
       <h1 class="mx-auto my-0 white text-uppercase">GEO TREE</h1>
-      <h2 class="mx-auto mt-2 mb-5 white">Comment le numérique peut vous aider à mieux connaitre les arbres autour de vous.</h2>
-      <a href="<%= trees_map_path %>" class="btn btn-success">Commence l'exploration</a>
-      <h4 class="text-white-50 mx-auto mt-2 mb-5">
-        <em class="btn btn-success"><%= @spots.count %> spots</em>
-        <em class="btn btn-success"><%= @trees.count %> arbres</em>
-        <em class="btn btn-success"><%= @taxons.count %> espèces</em>
-      </h4>
+
+      <div class="mx-auto mt-2 mb-5">
+        <h2 class=" white">Découvre les arbres autour de chez toi et contribue à diffuser la connaissance de ces communs.</h2>
+        <a href="<%= trees_map_path %>" class="my-3 btn btn-success btn-lg">Commence l'exploration</a>
+      </div>
+
+      <em class="mx-auto white">Pour le moment, la carte dispose de ces communs :</em>
+      <div class="text-white-50 mx-auto mt-2 mb-5">
+        <p class="btn btn-success"><%= @spots.count %> jardins</p>
+        <p class="btn btn-success"><%= @trees.count %> arbres</p>
+        <p class="btn btn-success"><%= @taxons.count %> espèces</p>
+      </div>
     </div>
   </div>
 </header>
