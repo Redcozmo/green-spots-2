@@ -1,0 +1,41 @@
+@font-face {
+  font-family: 'hind-regular';
+  src: font-url('hind-reglar.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'hind-light';
+  src: font-url('hind-light.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'hind-medium';
+  src: font-url('hind-medium.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'hind-semibold';
+  src: font-url('hind-semibold.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'hind-bold';
+  src: font-url('hind-bold.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.hind-regular-white-1 {
+  font-family: 'hind-regular', Georgia, sans-serif;
+  font-size: 1em;
+  font-weight: normal;
+  color: white;
+}
